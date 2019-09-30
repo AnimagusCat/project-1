@@ -14,7 +14,7 @@ h1 {
 	background-size: cover;
 	height: 650px;
 }
-.top-score, .top-timer {
+.top-score, .top-timer, .top-strike {
 	height: 60px;
 	background-color: #F2EFEE;
 	display: inline-flex;
@@ -80,7 +80,7 @@ h1 {
 	font-size: 25px;
 	padding-top: 12px;
 	border-radius: 10px;
-	margin-left: 50%;
+	margin-left: 40%;
 	font-weight: bold;
 }
 #points {
@@ -89,20 +89,28 @@ h1 {
 	background-color: #F2EFEE;
 	color: black;
 	text-align: center;
-	font-size: 25px;
+	font-size: 22px;
 	font-weight: bold;
-	padding: 10px;
+	padding: 12px;
 }
-/*img {
+.redCross {
 	width: 30px;
-	height: 30px;*/
+	height: 30px;
 }
+
 #complaints {
 	height: 50px;
 	width: 100px;
-	display: inline-block;
-	font-size: 25px;
+	background-color: #F2EFEE;
+	color: black;
+	text-align: center;
+	font-size: 22px;
 	font-weight: bold;
 	padding: 10px;
-	text-align: center;
+	display: flex;
+}
+span {
+	padding: 10px;
+	color: green;
+	font-size: 30px;
 }

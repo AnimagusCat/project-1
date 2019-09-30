@@ -27,9 +27,6 @@ window.onload = function () {
 //keeps track of points earned
 var points = 0;
 
-/*var pointText = document.createElement("p");
-pointText.innerText*/
-
 //keeps track of wrong match
 var strikes = 0;
 //customer in queue
@@ -182,6 +179,7 @@ var movePlates = function(){
 });*/
 
 
+
 //checks whether customerMatch and plateMatch are true
 //check whether it runs without parameters??
 var order = function (plateMatch, customerMatch){
@@ -199,7 +197,12 @@ var order = function (plateMatch, customerMatch){
 var fail = function() {
     if (strikes <= 2){
         console.log("WRONG! Strike no. " + strikes);
+        var redCross = document.createElement("img");
+        redCross.classList.add("redCross");
+        redCross.src = "images/redcross.png";
+        document.getElementById("complaints").appendChild(redCross);
         strikes++;
+
     } else if (strike === 3){
         console.log("GAME OVER Strike no. " + strikes);
         alert("GAME OVER");
@@ -228,3 +231,15 @@ var gameStart = function (){
     getCustomer();
     startTimer();
 };
+
+document.addEventListener("keyup", dealWithKeyboard, true);
+function dealWithKeyboard(event) {
+    if (event.code == "space"){
+        popPlate();
+    };
+    console.log(event.which);
+};
+
+var pointText = document.createElement("span");
+pointText.innerHTML = points;
+document.getElementById("points").appendChild(pointText);
