@@ -31,43 +31,44 @@ h1 {
 	margin-top: 16px;
 }
 .saladCustomer {
-	width: 40%;
-	height: 80%;
-	margin-top: 36px;
+	width: 70%;
+	height: 90%;
+	margin-top: 16px;
 }
 .steakCustomer {
-	width: 50%;
-	height: 75%;
-	margin-top: 47px;
+	width: 70%;
+	height: 90%;
+	margin-top: 16px;
 }
 #bottom-board1 {
-	height: 180px;
-	margin-top: 100px;
+	/*height: 180px;
+	margin-top: 100px;*/
 }
 #bottom-board2 {
-	height: 180px;
-	margin-top: 100px;
+	/*height: 180px;
+	margin-top: 100px;*/
 }
 
 #bottom-board3 {
-	height: 180px;
-	margin-top: 100px;
+	/*height: 180px;
+	margin-top: 100px;*/
 }
 
 .chips {
-	height: 40%;
-	width: 50%;
-	margin-top: 20px;
+	height: 75%;
+	width: 55%;
+	margin-left: 10%;
+
 }
 .greens {
-	height: 40%;
-	width: 50%;
-	margin-top: 20px;
+	height: 75%;
+	width: 55%;
+	margin-left: 10%;
 }
 .meat {
-	height: 40%;
-	width: 50%;
-	margin-top: 20px;
+	height: 75%;
+	width: 55%;
+	margin-left: 10%;
 }
 
 #safeTimerDisplay {
@@ -92,13 +93,16 @@ h1 {
 	font-weight: bold;
 	padding: 10px;
 }
-img {
+/*img {
 	width: 30px;
-	height: 30px;
+	height: 30px;*/
 }
 #complaints {
+	height: 50px;
+	width: 100px;
 	display: inline-block;
 	font-size: 25px;
 	font-weight: bold;
 	padding: 10px;
+	text-align: center;
 }

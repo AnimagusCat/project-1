@@ -26,6 +26,10 @@ window.onload = function () {
 
 //keeps track of points earned
 var points = 0;
+
+/*var pointText = document.createElement("p");
+pointText.innerText*/
+
 //keeps track of wrong match
 var strikes = 0;
 //customer in queue
@@ -46,27 +50,28 @@ var customers = [
         food: "steak"
     }
 ];
+//customer images
 var chipsCustomer = document.createElement("img");
 chipsCustomer.src = "images/bigman-cropped.png";
 chipsCustomer.classList.add("chipsCustomer");
-//document.getElementById("middle-customer").appendChild(chipsCustomer);
+
 
 var saladCustomer = document.createElement("img");
 saladCustomer.src = "images/lady-cropped.png";
 saladCustomer.classList.add("saladCustomer");
-//document.getElementById("middle-customer").appendChild(saladCustomer);
+
 
 var steakCustomer = document.createElement("img");
 steakCustomer.src = "images/darkman-cropped.png";
 steakCustomer.classList.add("steakCustomer");
-//document.getElementById("middle-customer").appendChild(steakCustomer);
 
 //plate alignment at the start
 var plateLine = [customers[0].food, customers[1].food, customers[2].food];
 
+//food images
 var chips = document.createElement("img");
 chips.classList.add("chips");
-chips.src = "images/fishchips.png";
+chips.src = "images/fishchips-new.png";
 document.getElementById("bottom-board1").appendChild(chips);
 
 var greens = document.createElement("img");
@@ -76,7 +81,7 @@ document.getElementById("bottom-board2").appendChild(greens);
 
 var meat = document.createElement("img");
 meat.classList.add("meat");
-meat.src = "images/steak.png";
+meat.src = "images/steak-new.png";
 document.getElementById("bottom-board3").appendChild(meat);
 
 //food on plate
@@ -85,24 +90,21 @@ var plateMatch = plateLine[0];
 //randomize customers and assign one to customerMatch
 //run this again after user gets correct answer
 var getCustomer = function() {
+    var customer = document.getElementById("middle-customer");
+    customer.innerHTML = "";
     var randomNumber = Math.floor(Math.random() * 3);
     customerMatch = customers[randomNumber].food;
-       /* if (customerMatch === customers[0].food){
-        document.getElementById("middle-customer").appendChild(chipsCustomer);
-        div.removeChild(chipsCustomer);
-        } else if (customerMatch === customers[1].food) {
-        document.getElementById("middle-customer").appendChild(saladCustomer);
-        div.removeChild(chipsCustomer);
-        } else if (customerMatch === customers[2].food) {
-        document.getElementById("middle-customer").appendChild(steakCustomer);
-        div.removeChild(chipsCustomer);
-        }*/
+    switch (customerMatch) {
+        case "fishandchips": customer.appendChild(chipsCustomer);
+        break;
+        case "salad": customer.appendChild(saladCustomer);
+        break;
+        case "steak": customer.appendChild(steakCustomer);
+    }
     return customerMatch;
+
 };
 getCustomer();
-
-
-
 
 //generates a new plate to the end of the plateLine array
 var newPlateLine = function(){
@@ -126,18 +128,59 @@ var popPlate = function(){
 
     newPlateLine();
     plateMatch= plateLine[0]
+    movePlates();
 };
 
+var movePlates = function(){
+    var chipsClone = chips.cloneNode(true);
+    var chipsClone2 = chips.cloneNode(true);
 
+    var greensClone = greens.cloneNode(true);
+    var greensClone2 = greens.cloneNode(true);
+
+    var meatClone = meat.cloneNode(true);
+    var meatClone2 = meat.cloneNode(true);
+
+    var firstPlate = document.getElementById("bottom-board1");
+    firstPlate.innerHTML = "";
+    switch (plateLine[0]){
+        case "fishandchips": firstPlate.appendChild(chips);
+        break;
+        case "salad": firstPlate.appendChild(greens);
+        break;
+        case  "steak": firstPlate.appendChild(meat);
+        break;
+    };
+    var secondPlate = document.getElementById("bottom-board2");
+    secondPlate.innerHTML = "";
+    switch (plateLine[1]){
+        case "fishandchips": secondPlate.appendChild(chipsClone);
+        break;
+        case "salad":  secondPlate.appendChild(greensClone);
+        break;
+        case  "steak": secondPlate.appendChild(meatClone);
+        break;
+    };
+    var thirdPlate = document.getElementById("bottom-board3");
+    thirdPlate.innerHTML = "";
+    switch (plateLine[2]){
+        case "fishandchips": thirdPlate.appendChild(chipsClone2);
+        break;
+        case "salad": thirdPlate.appendChild(greensClone2);
+        break;
+        case  "steak": thirdPlate.appendChild(meatClone2);
+        break;
+    };
+};
 
 //addEventLister - > spacebar to activate function newPlateLine
-//document.addEventLister("keydown", popPlate);
 /*document.addEventListener("keyup", function(event) {
-    if (event.code == "Backspace"){
+    if (event.code == "space"){
         popPlate();
     }
   console.log(event.which);
 });*/
+
 
 //checks whether customerMatch and plateMatch are true
 //check whether it runs without parameters??
