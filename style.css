@@ -1,4 +1,60 @@
 body {
-	margin: 20px auto;
+	background-color: #262626;
+}
+h1 {
+	color: #F2F2F2;
 	text-align: center;
+	margin: 20px;
+}
+.row {
+	margin: 0px;
+}
+.game-board {
+	background-image: url("images/wooden-table.jpg");
+	background-size: cover;
+	height: 650px;
+}
+.top-score, .top-timer {
+	height: 60px;
+	background-color: #F2EFEE;
+	display: inline-flex;
+	text-align: center;
+}
+.middle-menu, .middle-customer {
+	height: 370px;
+}
+.bottom-left, .bottom-board1, .bottom-board2, .bottom-board3, .bottom-right {
+	height: 180px;
+}
+#safeTimerDisplay {
+	height: 50px;
+	width: 100px;
+	background-color: #F2EFEE ;
+	color: black;
+	text-align: center;
+	font-size: 25px;
+	padding-top: 12px;
+	border-radius: 10px;
+	margin-left: 50%;
+	font-weight: bold;
+}
+#points {
+	height: 50px;
+	width: 100px;
+	background-color: #F2EFEE;
+	color: black;
+	text-align: center;
+	font-size: 25px;
+	font-weight: bold;
+	padding: 10px;
+}
+img {
+	width: 30px;
+	height: 30px;
+}
+#complaints {
+	display: inline-block;
+	font-size: 25px;
+	font-weight: bold;
+	padding: 10px;
 }
