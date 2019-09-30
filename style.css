@@ -20,12 +20,56 @@ h1 {
 	display: inline-flex;
 	text-align: center;
 }
-.middle-menu, .middle-customer {
-	height: 370px;
+#middle-menu {
+	height: 300px;
+	width: 100px;
+	background-color: black;
 }
-.bottom-left, .bottom-board1, .bottom-board2, .bottom-board3, .bottom-right {
+.chipsCustomer {
+	width: 70%;
+	height: 90%;
+	margin-top: 16px;
+}
+.saladCustomer {
+	width: 40%;
+	height: 80%;
+	margin-top: 36px;
+}
+.steakCustomer {
+	width: 50%;
+	height: 75%;
+	margin-top: 47px;
+}
+#bottom-board1 {
 	height: 180px;
+	margin-top: 100px;
 }
+#bottom-board2 {
+	height: 180px;
+	margin-top: 100px;
+}
+
+#bottom-board3 {
+	height: 180px;
+	margin-top: 100px;
+}
+
+.chips {
+	height: 40%;
+	width: 50%;
+	margin-top: 20px;
+}
+.greens {
+	height: 40%;
+	width: 50%;
+	margin-top: 20px;
+}
+.meat {
+	height: 40%;
+	width: 50%;
+	margin-top: 20px;
+}
+
 #safeTimerDisplay {
 	height: 50px;
 	width: 100px;
