@@ -1,11 +1,33 @@
 body {
 	background-color: #262626;
 }
-.startScreen {
+#startScreen {
 	height: 650px;
-	display: none;
-
+	/*background-image: url("images/wooden-table.jpg");
+	background-size: cover;*/
+	color: #F2EFEE;
+	font-size: 23px;
+	padding: 130px 222px;
+	text-align: center;
+	line-height: 1.6;
+	border: solid;
+	border-color: #F2EFEE;
+	position: absolute;
+	z-index: 1;
+	height: 650px;
+	background-color: rgba(38, 38, 38, 0.9);
 }
+
+button {
+	background-color: #669900;
+	color: #F2EFEE;
+	margin-top: 20px;
+}
+
+.hidescreen {
+	display: none;
+}
+
 h1 {
 	color: #F2F2F2;
 	text-align: center;
@@ -28,7 +50,12 @@ h1 {
 #middle-menu {
 	height: 300px;
 	width: 100px;
-	background-color: black;
+	/*background-color: #996633;
+	color: #996633;*/
+}
+#middle-menu img {
+	width: 100%;
+	height: 100%;
 }
 .chipsCustomer {
 	width: 70%;

@@ -12,7 +12,11 @@
 <body>
     <div class = "container">
     <h1>Serve Up!</h1>
-    <div class="startScreen"></div>
+    <div id="startScreen">
+        <p>It's lunch time on the cruise ship and the vacationers are starving!<br> Serve the right order and you'll get your tip.<br>Mess up even one order and you'll get a customer complaint.<br>If you rack up over three customer complaints, you're fired!</p>
+        <p><b>Controls:</b><br><b>SPACEBAR</b> - Remove the first dish in line to generate a new one <br><b>ENTER</b> - Serve the dish to the customer</p>
+        <button id="startBtn"><b>START GAME</b></button>
+    </div>
             <div class="game-board">
                 <div class="row">
                     <div class="top-score col-md-4">
@@ -26,8 +30,8 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-4" id="middle-menu">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo</div>
                     <div class="col-md-8" id="middle-customer"></div>
+                    <div class="col-md-4" id="middle-menu"><img src="images/menuboard2Complete.jpg"></div>
                 </div>
                 <div class="row">
                     <div class="col-md-4" id="bottom-board1"></div>

@@ -23,18 +23,21 @@ function startTimer(duration, display) {
     startTimer(time, display);
 };*/
 
-/*var startMessage = document.createElement("div");
-startMessage.classList.add("starMessage");
-startMessage.textContent = "Instructions: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
-document.appendChild(startMessage);*/
+document.body.onkeyup = function(e){
+    if(e.keyCode == 32){
+        popPlate();
+    } else if (e.keyCode == 13){
+        order(plateMatch, customerMatch);
+    }
+};
 
-var gameStart = function (){
-    var points = 0;
-    var strikes = 0;
-    getCustomer();
-    var time = 240 / 2, // your time in seconds here
-    display = document.querySelector('#safeTimerDisplay');
-    startTimer(time, display);
+window.onload = function () {
+    var clearScreen = document.getElementById('startScreen');
+    var startBtn = document.getElementById('startBtn');
+    startBtn.onclick = function() {
+        clearScreen.setAttribute('class', 'hidescreen');
+        gameStart();
+    }
 };
 
 //keeps track of points earned
@@ -47,6 +50,17 @@ document.getElementById("points").appendChild(pointText);
 var strikes = 0;
 //customer in queue
 var customerMatch = "";
+
+
+
+var gameStart = function (){
+    points = 0;
+    strikes = 0;
+    getCustomer();
+    var time = 120 / 2, // your time in seconds here
+    display = document.querySelector('#safeTimerDisplay');
+    startTimer(time, display);
+};
 
 //Types of customers
 var customers = [
@@ -187,14 +201,8 @@ var movePlates = function(){
     };
 };
 
-document.body.onkeyup = function(e){
-    if(e.keyCode == 32){
-        popPlate();
-    } else if (e.keyCode == 13){
-        order(plateMatch, customerMatch);
-    }
-};
 
+//customers' pop-up messages when order is right/wrong
 var correctMsg = document.createElement("img");
         correctMsg.classList.add("correctMsg");
         correctMsg.src = "images/correctspeechText.png";
@@ -210,39 +218,50 @@ var order = function (plateMatch, customerMatch){
         points += 10;
         pointText.innerHTML = points;
         document.getElementById("middle-customer").appendChild(correctMsg);
-        setTimeout (getCustomer, 1000);
+        setTimeout (getCustomer, 500);
         popPlate();
     } else if (plateMatch !== customerMatch) {
-        console.log("wrong!");
-        document.getElementById("middle-customer").appendChild(wrongMsg);
-        var wrongSpeechOneSecond = setTimeout(wrongSpeech, 1000);
-        fail();
+        if (strikes === 3){
+            endGame();
+        } else {
+            console.log("wrong!");
+            document.getElementById("middle-customer").appendChild(wrongMsg);
+            var wrongSpeechOneSecond = setTimeout(wrongSpeech, 500);
+            fail();
+        }
     }
 };
 //clears wrongMsg
 var wrongSpeech = function() {
-  console.log('wrongSpeechRuns');
-  document.getElementById("middle-customer").removeChild(wrongMsg);
+    console.log('wrongSpeechRuns');
+    document.getElementById("middle-customer").removeChild(wrongMsg);
 };
-
 //tracks no. of strikes
 var fail = function() {
     if (strikes <= 2){
-        console.log("WRONG! Strike no. " + strikes);
         var redCross = document.createElement("img");
         redCross.classList.add("redCross");
         redCross.src = "images/redcross.png";
         document.getElementById("complaints").appendChild(redCross);
         strikes++;
-
-    } else if (strike === 3){
-        console.log("GAME OVER Strike no. " + strikes);
-        alert("GAME OVER");
-        //show option to restart game
+    } else if (strikes === 3){
+        endGame();
     }
     return;
 };
 
 var endGame = function (){
-
+    alert("GAME OVER. Click below to restart");
+    //document.getElementById("points").innerHTML = null;
+    document.getElementById("complaints").innerHTML = null;
+    //document.getElementById("complaints").removeChild(redCross);
+    pointText.innerHTML = "";
+    function stopTimer (){
+        clearInterval (startTimer);
+    }
+    gameStart();
 };
+/*if (time <= 0 || strikes === 3){
+        endGame();
+    }
+    document.removeEventListener("onkeyup", e);*/
