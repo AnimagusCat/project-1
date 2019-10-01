@@ -27,6 +27,9 @@ window.onload = function () {
 //keeps track of points earned
 var points = 0;
 
+var pointText = document.createElement("span");
+document.getElementById("points").appendChild(pointText);
+
 //keeps track of wrong match
 var strikes = 0;
 //customer in queue
@@ -128,6 +131,7 @@ var popPlate = function(){
     movePlates();
 };
 
+//shuffles the plates after popPlate is activated
 var movePlates = function(){
     var chipsClone = chips.cloneNode(true);
     var chipsClone2 = chips.cloneNode(true);
@@ -170,15 +174,13 @@ var movePlates = function(){
     };
 };
 
-//addEventLister - > spacebar to activate function newPlateLine
-/*document.addEventListener("keyup", function(event) {
-    if (event.code == "space"){
+document.body.onkeyup = function(e){
+    if(e.keyCode == 32){
         popPlate();
+    } else if (e.keyCode == 13){
+        order(plateMatch, customerMatch);
     }
-  console.log(event.which);
-});*/
-
-
+};
 
 //checks whether customerMatch and plateMatch are true
 //check whether it runs without parameters??
@@ -186,6 +188,7 @@ var order = function (plateMatch, customerMatch){
     if (plateMatch === customerMatch) {
         console.log("correct!");
         points += 10;
+        pointText.innerHTML = points;
         getCustomer();
         popPlate();
     } else if (plateMatch !== customerMatch) {
@@ -193,6 +196,7 @@ var order = function (plateMatch, customerMatch){
         fail();
     }
 };
+
 
 var fail = function() {
     if (strikes <= 2){
@@ -231,15 +235,3 @@ var gameStart = function (){
     getCustomer();
     startTimer();
 };
-
-document.addEventListener("keyup", dealWithKeyboard, true);
-function dealWithKeyboard(event) {
-    if (event.code == "space"){
-        popPlate();
-    };
-    console.log(event.which);
-};
-
-var pointText = document.createElement("span");
-pointText.innerHTML = points;
-document.getElementById("points").appendChild(pointText);
