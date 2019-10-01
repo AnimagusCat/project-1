@@ -17,11 +17,24 @@ function startTimer(duration, display) {
     }, 1000);
 }
 
-window.onload = function () {
+/*window.onload = function () {
     var time = 240 / 2, // your time in seconds here
         display = document.querySelector('#safeTimerDisplay');
     startTimer(time, display);
+};*/
 
+/*var startMessage = document.createElement("div");
+startMessage.classList.add("starMessage");
+startMessage.textContent = "Instructions: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
+document.appendChild(startMessage);*/
+
+var gameStart = function (){
+    var points = 0;
+    var strikes = 0;
+    getCustomer();
+    var time = 240 / 2, // your time in seconds here
+    display = document.querySelector('#safeTimerDisplay');
+    startTimer(time, display);
 };
 
 //keeps track of points earned
@@ -182,22 +195,37 @@ document.body.onkeyup = function(e){
     }
 };
 
+var correctMsg = document.createElement("img");
+        correctMsg.classList.add("correctMsg");
+        correctMsg.src = "images/correctspeechText.png";
+
+var wrongMsg = document.createElement("img");
+        wrongMsg.classList.add("wrongMsg");
+        wrongMsg.src = "images/wrongspeechText.png";
+
 //checks whether customerMatch and plateMatch are true
-//check whether it runs without parameters??
 var order = function (plateMatch, customerMatch){
     if (plateMatch === customerMatch) {
         console.log("correct!");
         points += 10;
         pointText.innerHTML = points;
-        getCustomer();
+        document.getElementById("middle-customer").appendChild(correctMsg);
+        setTimeout (getCustomer, 1000);
         popPlate();
     } else if (plateMatch !== customerMatch) {
         console.log("wrong!");
+        document.getElementById("middle-customer").appendChild(wrongMsg);
+        var wrongSpeechOneSecond = setTimeout(wrongSpeech, 1000);
         fail();
     }
 };
+//clears wrongMsg
+var wrongSpeech = function() {
+  console.log('wrongSpeechRuns');
+  document.getElementById("middle-customer").removeChild(wrongMsg);
+};
 
-
+//tracks no. of strikes
 var fail = function() {
     if (strikes <= 2){
         console.log("WRONG! Strike no. " + strikes);
@@ -217,21 +245,4 @@ var fail = function() {
 
 var endGame = function (){
 
-};
-/*var success = function(){
-    if (maxTime <= 0) {
-        //stop game
-        //show option to restart game
-    }
-};*/
-/*var startMessage = document.createElement("div");
-startMessage.classList.add("starMessage");
-startMessage.textContent = "Instructions: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
-document.appendChild(startMessage);*/
-
-var gameStart = function (){
-    var points = 0;
-    var strikes = 0;
-    getCustomer();
-    startTimer();
 };

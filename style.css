@@ -1,6 +1,11 @@
 body {
 	background-color: #262626;
 }
+.startScreen {
+	height: 650px;
+	display: none;
+
+}
 h1 {
 	color: #F2F2F2;
 	text-align: center;
@@ -113,4 +118,19 @@ span {
 	padding: 10px;
 	color: green;
 	font-size: 30px;
+}
+.correctMsg {
+	width: 200px;
+	height: 120px;
+	margin-right: 200px;
+	margin-top: 50px;
+	position: absolute;
+}
+
+.wrongMsg {
+	width: 220px;
+	height: 170px;
+	margin-right: 200px;
+	margin-top: 50px;
+	position: absolute;
 }
