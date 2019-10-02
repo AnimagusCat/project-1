@@ -51,14 +51,13 @@ var strikes = 0;
 //customer in queue
 var customerMatch = "";
 
-
+var time = 120 / 2, // your time in seconds here
+display = document.querySelector('#safeTimerDisplay');
 
 var gameStart = function (){
     points = 0;
     strikes = 0;
     getCustomer();
-    var time = 120 / 2, // your time in seconds here
-    display = document.querySelector('#safeTimerDisplay');
     startTimer(time, display);
 };
 
@@ -127,9 +126,8 @@ var getCustomer = function() {
         case "salad": customer.appendChild(saladCustomer);
         break;
         case "steak": customer.appendChild(steakCustomer);
-    }
+    };
     return customerMatch;
-
 };
 getCustomer();
 
@@ -256,11 +254,13 @@ var endGame = function (){
     document.getElementById("complaints").innerHTML = null;
     //document.getElementById("complaints").removeChild(redCross);
     pointText.innerHTML = "";
-    function stopTimer (){
+    /*function stopTimer (){
         clearInterval (startTimer);
-    }
+    }*/
     gameStart();
 };
+
+
 /*if (time <= 0 || strikes === 3){
         endGame();
     }
