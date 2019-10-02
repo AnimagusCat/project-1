@@ -4,3 +4,6 @@ It's time for lunch on the cruise ship and the vacationers are starving. These c
 Technologies used:
 - HTML, CSS, JavaScript
 - DOM Manipulation
+
+Unresolved bug:
+- Timer does not clear when game is reset so the duplicated timer gets overlapped.
